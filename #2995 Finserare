@@ -1,0 +1,34 @@
+#include <cmath>
+void inserare(int &n)
+{
+    short int a=-1,b=-1,p=0;
+    int nou=0;
+    while(n)
+    {
+        if(a==-1)
+        {
+            a=n%10;
+            nou+=pow(10,p)*a;
+            p++;
+        }
+        else if(b==-1)
+        {
+            b=n%10;
+            nou+=pow(10,p)*abs(a-b);
+            p++;
+            nou+=pow(10,p)*b;
+            p++;
+        }
+        else
+        {
+            a=b;
+            b=n%10;
+            nou+=pow(10,p)*abs(a-b);
+            p++;
+            nou+=pow(10,p)*b;
+            p++;
+        }
+        n/=10;
+    }
+    n=nou;
+}
